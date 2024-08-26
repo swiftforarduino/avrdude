@@ -25,6 +25,7 @@ project(avrdude VERSION 8.0 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED True)
+set(CMAKE_OSX_ARCHITECTURES arm64 x86_64)
 
 option(BUILD_DOC "Enable building documents" OFF)
 option(HAVE_LINUXGPIO "Enable Linux sysfs and libgpiod GPIO support" OFF)
