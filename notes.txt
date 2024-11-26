@@ -1,0 +1,19 @@
+I manually built with cmake, because I couldn't be bothered hacking build.sh, and it doesn't do much anyway.
+
+I created the build dir and cd-ed into it...
+
+mkdir build_darwin; cd build_darwin
+
+Make sure you have any dependencies you need installed with brew install. Probably you'll want at least...
+libusb
+libusb-compat
+libftdi or libftdi1
+hidapi
+
+Then cmake build...
+
+cmake -D CMAKE_C_FLAGS=-I/Users/carl/homebrew/include -D CMAKE_EXE_LINKER_FLAGS=-L/Users/carl/homebrew/Cellar -D CMAKE_BUILD_TYPE=RelWithDebInfo ..
+cmake --build .
+
+The resulting exe is in the src subdirectory. Copy the avrdude.conf file too to avoid complaints. With the correct Homebrew prefix, it should pick up libusb, libusb-compat, libhidapi, libftdi and as a result should support all standard ISP programmers, including the Atmel ICE.
+
